@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pomodoro Timer</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="jquery-ui.min.css">
+</head>
+
+<body>
+  <div id="content">
+    <img src="https://dl.dropbox.com/s/u9grtvze5pehwz6/coollogo_com-285971835.png?dl=0" />
+  </div>
+
+  <div id="controls">
+    <form>
+      <input type="text" id="pomodoro" value="25" onkeydown="return false" unselectable="on" onselectstart="return false;" onmousedown="return false;">
+    </form>
+    <form class="right">
+      <input type="text" id="break" value="5" onkeydown="return false" unselectable="on" onselectstart="return false;" onmousedown="return false;">
+    </form>
+  </div>
+
+  <div class="pomodoro">
+    <canvas id="myCanvas" width="400" height="400"></canvas>
+    <div class="timer">Start</div>
+  </div>
+
+  <a href="https://en.wikipedia.org/wiki/Pomodoro_Technique" class="what-is" target="_blank">What is a pomodoro timer?</a>
+
+  <script src='external/jquery/jquery.js'></script>
+  <script src="jquery-ui.min.js"></script>
+  <script src="js/index.js"></script>
+</body>
+
+</html>
