@@ -81,37 +81,37 @@ $(document).ready(function () {
     resizeCanvas();
   });
 
-resizeCanvas();
-drawProgress(0);
+  resizeCanvas();
+  drawProgress(0);
 
-$("#pomodoro").spinner({
-  min: 1,
-  max: 60
-});
-$("#break ").spinner({
-  min: 1,
-  max: 60
-});
+  $("#pomodoro").spinner({
+    min: 1,
+    max: 60
+  });
+  $("#break ").spinner({
+    min: 1,
+    max: 60
+  });
 
-$('.pomodoro').click(function (event) {
-  event.preventDefault();
-  var $timer = $('.timer');
-  var timerValue = $timer.html().replace(/:/g, '');
+  $('.pomodoro').click(function (event) {
+    event.preventDefault();
+    var $timer = $('.timer');
+    var timerValue = $timer.html().replace(/:/g, '');
 
-  if (isNaN(timerValue)) {
-    if (isBreak) {
-      timerLength = $("#break").val() * 60;
+    if (isNaN(timerValue)) {
+      if (isBreak) {
+        timerLength = $("#break").val() * 60;
+        timerFinish = new Date().getTime() + (timerLength * 1000);
+        timer = setInterval('stopWatch()', 1);
+        return;
+      }
+
+      timerLength = $("#pomodoro").val() * 60;
       timerFinish = new Date().getTime() + (timerLength * 1000);
       timer = setInterval('stopWatch()', 1);
-      return;
+    } else {
+      clearInterval(timer);
+      $timer.html('Start');
     }
-
-    timerLength = $("#pomodoro").val() * 60;
-    timerFinish = new Date().getTime() + (timerLength * 1000);
-    timer = setInterval('stopWatch()', 1);
-  } else {
-    clearInterval(timer);
-    $timer.html('Start');
-  }
-});
+  });
 });
