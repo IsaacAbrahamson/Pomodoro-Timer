@@ -114,3 +114,4 @@ $('.pomodoro').click(function (event) {
     $timer.html('Start');
   }
 });
+});
